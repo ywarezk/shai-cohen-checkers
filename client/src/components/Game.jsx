@@ -54,7 +54,6 @@ const Game = () => {
           );
           const res = checkAvailableMoves(boardDuplicate, isPlayer1);
           setMaxEatingPossible(res.maxEatingSizeGlobal);
-          console.log(res)
 
           if (!res.isLeftMoves) {
             setIsGameOver(true);

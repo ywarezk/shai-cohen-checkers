@@ -10,8 +10,6 @@ const Board=({squares,pieces, onClick, selectedPiece})=>{
 
             return <Square key={`${i}-${j}`}
             square={square}
-            // valid={square.isValid}
-            // piece={square}
             isSelected={(selectedPiece!=null && (selectedPiece.i===i &&selectedPiece.j===j)) ? true : false}
             
             onClick={()=>onClick(i,j)}/>

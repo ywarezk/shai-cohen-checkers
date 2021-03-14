@@ -25,7 +25,6 @@ export const handleClickMove = (
   );
 
   maxEatingForMove = res.eatingSizeDirection + eatenSize;
-  console.log(maxEatingPossible,maxEatingForMove)
   if (res.isValid) {
     if (maxEatingForMove) {
       if (maxEatingPossible === maxEatingForMove) {
@@ -111,24 +110,15 @@ export const checkAvailableMoves = (fakeBoard, isPlayer1) => {
 };
 
 const checkMove = (fakeBoard, placeFrom, distance, isPlayer1, didEat, allowedDirections) => {
-  
-  let mulI = -1;
-  let mulJ = 1;
-  let directions = 0;
   let localMaxEating = 0;
   let eatingSizeDirection = 0;
   let isLeftMoves = false;
   for (let dist = 1; dist <= distance; dist++) {
-    //while (directions < 4) {
       for(const dir of allowedDirections){
         const placeTo = {
           i: placeFrom.i + dist * dir.i,
           j: placeFrom.j + dist * dir.j,
         };
-        // const placeTo = {
-        //   i: placeFrom.i + dist * mulI,
-        //   j: placeFrom.j + dist * mulJ,
-        // };
         if (
           placeTo.i >= 0 &&
           placeTo.i < fakeBoard.length &&
@@ -149,19 +139,7 @@ const checkMove = (fakeBoard, placeFrom, distance, isPlayer1, didEat, allowedDir
           }
           isLeftMoves = res.isValid || isLeftMoves;
         }
-  
-        directions++;
-        if (mulI === 1 && mulJ !== 1) {
-          mulJ = 1;
-        } else {
-          mulI *= -1;
-          mulJ *= -1;
-        }
-      
     }
-    directions = 0;
-    mulI = -1;
-    mulJ = 1;
   }
   return { localMaxEating, isLeftMoves };
 };
@@ -175,7 +153,6 @@ const checkSingleMove = (fakeBoard, placeFrom, placeTo, isPlayer1, didEat) => {
     isPlayer1,
     didEat
   );
-  //if(!isMoveToKing){
   let fakeMove = fakeBoard.map((row,i)=> row.map((square,j)=>  Object.assign({}, square)));
   if (isValid) {
     if (eatNow) {
@@ -206,13 +183,11 @@ const checkSingleMove = (fakeBoard, placeFrom, placeTo, isPlayer1, didEat) => {
         else if(placeTo.i < placeFrom.i && placeTo.j > placeFrom.j){
           directions =[{i:1,j:1},{i:-1,j:-1},{i:-1,j:1}];
         }
-        console.log(directions);
         eatingSizeDirection =
           1 +
           checkMove(fakeMove, placeTo, distance, isPlayer1, true, directions).localMaxEating;
       
       }
-    //}
   }
 }
   return { isValid, eatingSizeDirection, eatLocation, isMoveToKing };

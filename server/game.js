@@ -6,6 +6,7 @@ class Square {
   constructor(isValid, player) {
     this.isValid = isValid;
     this.player = player;
+    this.isKing = false;
   }
 }
 
@@ -90,8 +91,3 @@ const initBoard = () => {
     }
   }
 };
-
-// const onMove = (board) => {
-//   console.log(board);
-//   gameSocket.broadcast.emit("player-move", board);
-// };
