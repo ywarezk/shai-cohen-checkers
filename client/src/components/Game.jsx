@@ -72,7 +72,7 @@ const Game = () => {
     });
   }, []);
 
-  const handleClick1 = (i, j) => {
+  const handleClick = (i, j) => {
     if (board[i][j].isValid && isPlayerTurn) {
       if (board[i][j].player === 1 && isPlayer1 && !eatenSize) {
         setSelectedPiece({ i, j });
@@ -139,7 +139,7 @@ const Game = () => {
       {gameOn && (
         <Board
           squares={board}
-          onClick={handleClick1}
+          onClick={handleClick}
           selectedPiece={selectedPiece}
         />
       )}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Square from './Square'
 
-const Board=({squares,pieces, onClick, selectedPiece})=>{
+const Board=({squares, onClick, selectedPiece})=>{
     return(
     <div className="board">
         {squares.map((row,i)=>
