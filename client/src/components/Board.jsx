@@ -1,6 +1,9 @@
 import React from 'react';
 import Square from './Square'
 
+// TODO: a component should have a well defined contract
+// which means you have to set propTypes: https://reactjs.org/docs/typechecking-with-proptypes.html
+// and also set default values in case some props have default value
 const Board=({squares, onClick, selectedPiece})=>{
     return(
     <div className="board">

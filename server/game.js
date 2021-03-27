@@ -1,5 +1,8 @@
 const connections = [null,null];
 const boardSize = 8;
+// TODO: In this architecture your app can only support 2 players.
+// might be better to integrate a database to save the data
+// consider maybe to use sqlite
 let board = [];
 class Square {
   player;

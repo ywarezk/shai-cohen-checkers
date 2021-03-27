@@ -6,6 +6,9 @@ import MessageBoard from "./MessageBoard";
 import { socket } from "../connection/socket";
 
 const Game = () => {
+	// TODO: consider using useReducer instead of so many useState
+	// TODO: some of the props you have to pass to child component and then to grandchild components in the component tree.
+	// consider maybe to use context for passing information in the tree or combining redux
   const [isPlayer1, setIsPlayer1] = useState(false);
   const [isPlayerTurn, setIsPlayerTurn] = useState(false);
   const [selectedPiece, setSelectedPiece] = useState(null);
@@ -24,6 +27,9 @@ const Game = () => {
 
       if (pIndex === 1 || pIndex === 2) {
         
+		// TODO: not sure that i would choose to place the socket related stuff here
+		// the components are used for UI and it seems more like data related logic
+		// 
         socket.on("start", (board) => {
           setIsPlayer1(isPlayer1);
           setGameOn(true);

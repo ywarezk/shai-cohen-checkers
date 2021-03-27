@@ -1,3 +1,13 @@
+/*
+TODO: I would architecture the styles differently 
+There are global styles, and there are component based styles.
+Styles that relate to a component like .square i would create a directory in components
+src/components/Square 
+and in that directory place
+src/components/Square/Square.js
+src/components/Square/Square.module.css
+*/
+
 *{
   padding:0;
   margin:0;
